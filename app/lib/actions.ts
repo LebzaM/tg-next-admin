@@ -29,10 +29,10 @@ export const addUser = async (formData: FormData): Promise<UserModel | null> => 
         status,
       });
   
-      // Save the new user to the database
+      
       await newUser.save();
   
-      // Return the newly created user if needed
+      
       return newUser;
     } catch (error) {
       console.error(error);

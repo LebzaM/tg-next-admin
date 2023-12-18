@@ -4,7 +4,6 @@ import { Table,Container, TableBody, TableCell, TableContainer, TableHead, Table
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import Link from 'next/link';
-import Pagination from '@/app/dashboard/pagination/pagination';
 import  fetchUser  from '@/app/lib/data';
 interface Employee {
   id: string;
@@ -58,7 +57,8 @@ const EmployeeTable: React.FC<EmployeeTableProps> =   ({ employees }) => {
           <MenuItem value="">All Departments</MenuItem>
           <MenuItem value="IT">IT</MenuItem>
           <MenuItem value="HR">HR</MenuItem>
-          {/* Add more departments as needed */}
+          <MenuItem value="Sales">Sales</MenuItem>
+          <MenuItem value="Finance">Finance</MenuItem>
         </Select>
       </FormControl>
 
