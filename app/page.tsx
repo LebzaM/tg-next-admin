@@ -1,6 +1,17 @@
+
 const Homepage = ()=>{
   return(
-    <div>Homepage</div>
+    <>
+    <p>Home</p>
+    <p>Home</p>
+    <p>Home</p>
+    <p>Home</p><p>Home</p>
+    <p>Home</p><p>Home</p>
+    <p>Home</p>
+    <p>Home</p><p>Home</p>
+    <p>Home</p>
+    <p>Home</p>
+    </>
   )
 }
 
