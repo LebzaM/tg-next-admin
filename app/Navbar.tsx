@@ -31,7 +31,7 @@ const Navbar = () => {
         </IconButton>
         <Typography variant="h6" component="div">
           <Link href="/" passHref>
-            <MuiLink color="inherit">My Company</MuiLink>
+            Genius HR Admin
           </Link>
         </Typography>
         <Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
