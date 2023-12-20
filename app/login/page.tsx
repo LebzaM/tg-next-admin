@@ -5,25 +5,22 @@ import {Container,Typography,TextField,Button,Paper, Box } from '@mui/material';
 import { useRouter } from 'next/navigation';
 const LoginPage = () => {
    const router = useRouter()
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+   const [data, setData] = useState({
+    email:'',
+    password:'',
+   })
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    signIn('credentials', {
+      ...data, 
+      redirect:false,
+    })
+    router.push('/dashboard/user')
 
-    const result = await signIn('credentials', {
-      redirect: false,
-      email,
-      password,
-    });
-
-    if (!result?.error) {
-      // Redirect 
-      router.push('/');
-      console.log('Login successful');
-    } else {
-      console.error('Login failed');
-    }
+   
   };
 
   return (
@@ -35,9 +32,9 @@ const LoginPage = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           id="email"
-          value={email}
+          value={data.email}
           required
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => {setData({...data, email: e.target.value})}}
           type="email"
           label="Email"
           variant="outlined"
@@ -46,9 +43,9 @@ const LoginPage = () => {
         />
         <TextField
           id="password"
-          value={password}
+          value={data.password}
           required
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={(e) => {setData({...data, password: e.target.value})}}
           label="Password"
           type="password"
           variant="outlined"

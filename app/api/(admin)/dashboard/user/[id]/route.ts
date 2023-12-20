@@ -9,7 +9,7 @@ const createUserSchema = z.object({
   telephone: z.string().min(1, 'Telephone number is required'),
   manager: z.optional(z.string().min(1, 'Manager  is requrired')),
   status: z.optional(z.string().min(1, 'Status is requrired')),
-  role: z.optional(z.string().min(1, 'Role is requrired')),
+  role: z.string().min(1, 'Role is required'),
 });
 
 export async function PATCH(
@@ -17,9 +17,11 @@ export async function PATCH(
   { params }: { params: { id: string } }
 ) {
   const body = await request.json();
-  const validation = createUserSchema.safeParse(body);
-  if (!validation.success)
-    return NextResponse.json(validation.error.format(), { status: 400 });
+  const result = createUserSchema.safeParse(body);
+  
+  if (result.success === false) {
+    return NextResponse.json(result.error.format(), { status: 400 });
+  }
 
   const user = await prisma.user.findUnique({
     where: { id: params.id },

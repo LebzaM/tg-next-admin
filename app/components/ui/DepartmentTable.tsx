@@ -42,17 +42,17 @@ const DepartmentTable: React.FC<DepartmentTableProps> =({managers}) => {
   return (
     <Box>
     <FormControl sx={{ marginBottom: 2, width:'100%' }}>
-          <InputLabel htmlFor="filter-department">Filter Manager</InputLabel>
+          <InputLabel htmlFor="filter-department">Filter Deparment</InputLabel>
           <Select
             id="filter-department"
             value={filterDepartment || ''}
             onChange={(e) => setFilterDepartment(e.target.value as string)}
           >
-            <MenuItem value="">All Managers</MenuItem>
-            <MenuItem value="Michael Scott">Michael Scott</MenuItem>
-            <MenuItem value="Sally Johnson">Sally Johnson</MenuItem>
-            <MenuItem value="Kagiso Loney">Kagiso Loney</MenuItem>
-            <MenuItem value="Dell Mane">Dell Mane</MenuItem>
+            <MenuItem value="">All Departments</MenuItem>
+            <MenuItem value="IT">IT</MenuItem>
+            <MenuItem value="PR">PR</MenuItem>
+            <MenuItem value="Admin">Admin</MenuItem>
+            
           </Select>
         </FormControl>
   
@@ -71,7 +71,8 @@ const DepartmentTable: React.FC<DepartmentTableProps> =({managers}) => {
     <Paper elevation={3} sx={{ padding: 3, marginBottom: 4, width: '75%', margin: 'auto' }}>
       
      
-        <TableContainer component={Paper}>
+        <TableContainer >
+          
             <AddButton />
           <Table>
             {/* <h3>Department List</h3> */}

@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import { Box } from '@mui/material'
 import Navbar from './Navbar'
-
+import Provider from './context/Provider'
+import QueryClientProvider from './QueryClientProvider'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -17,9 +18,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning={true} >
-      <div><Navbar /></div>
       
-        <body style={{marginTop:'70px'}}>{children}</body>   
+      
+        <body >
+        <QueryClientProvider>
+          <Provider>
+            <Navbar/>
+          <main style={{marginTop:'64px'}}>{children}</main>
+          </Provider>
+          </QueryClientProvider>
+          </body>   
     </html>
   )
 }

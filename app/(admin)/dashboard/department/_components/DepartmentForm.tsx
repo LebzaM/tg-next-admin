@@ -58,16 +58,21 @@ const DepartmentForm = ({ department }: Props) => {
           {...register('depname')}
           sx={{ mb: 2 }}
         />
+        <FormControl fullWidth sx={{ mb: 2 }}>
+              <InputLabel>Manager</InputLabel>
+              <Select
+                label="Manager"
+                defaultValue={department?.managername}
+                {...register('managername')}
+              >
+                <MenuItem value="Michael Scott">Michael Scott</MenuItem>
+                <MenuItem value="Sally Johnson">Sally Johnson</MenuItem>
+                <MenuItem value="Kagiso Loney">Kagiso Loney</MenuItem>
+                <MenuItem value="Dell Mane">Dell Mane</MenuItem>
+              </Select>
+            </FormControl>
 
-        <TextField
-          fullWidth
-          label="Manager Name"
-          variant="outlined"
-          placeholder="Enter Manager Name"
-          defaultValue={department?.managername}
-          {...register('managername')}
-          sx={{ mb: 2 }}
-        />
+        
 
         {department && (
           <FormControl fullWidth sx={{ mb: 2 }}>

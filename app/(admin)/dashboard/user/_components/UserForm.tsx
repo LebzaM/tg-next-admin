@@ -23,7 +23,7 @@ interface UserFormData {
   telephone: string;
   manager?: string;
   status?: string;
-  role?:string;
+  role:string;
 }
 
 interface Props {
@@ -122,7 +122,7 @@ const UserForm = ({ user }: Props) => {
               <InputLabel>Role</InputLabel>
               <Select
                 label="Role"
-                defaultValue={user.role || ''}
+                defaultValue={user.role}
                 {...register('role')}
               >
                 <MenuItem value="admin">Admin</MenuItem>

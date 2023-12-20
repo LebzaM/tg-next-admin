@@ -83,20 +83,6 @@ const EmployeeTable: React.FC<EmployeeTableProps> =   ({ employees }) => {
       <TableContainer >
         <Container sx={{justifyContent: 'space-between', gap:'20px'}}>
       <AddNewUserButton />
-      <TextField
-        id="search-bar"
-        className="text"
-        
-        label="Search an Employee"
-        variant="outlined"
-        placeholder="Search..."
-        size="small"
-        sx={{marginTop:'2%'}}
-      />
-      <IconButton type="submit" aria-label="search" sx={{marginTop:'2%'}}>
-        <SearchIcon style={{ fill: "blue" , marginTop:'2%'}} />
-      </IconButton>
-  
       </Container>
       
         <Table>
